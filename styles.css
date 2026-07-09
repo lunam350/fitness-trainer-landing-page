@@ -1,0 +1,860 @@
+/* ============================================================
+   FITCORE STUDIO — styles.css
+   Guía rápida de la hoja de estilos:
+   1. Variables (:root)
+   2. Reset básico
+   3. Utilidades reutilizables (botones, contenedores, títulos)
+   4. Navbar
+   5. Hero
+   6. Servicios
+   7. Planes / Precios
+   8. Calculadora IMC
+   9. Testimonios
+   10. FAQ
+   11. Contacto
+   12. Footer
+   13. Responsive (media queries)
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIABLES CSS
+   Definimos aquí toda la paleta y medidas del proyecto.
+   Si en el futuro quieres cambiar el color principal,
+   solo tienes que tocar este bloque, no todo el archivo.
+   ============================================================ */
+:root {
+  /* Colores base */
+  --color-ink: #14161a;        /* fondo oscuro principal (navbar, hero, footer) */
+  --color-steel: #2a2e35;      /* superficie oscura secundaria (tarjetas sobre fondo oscuro) */
+  --color-bone: #eeede7;       /* fondo claro principal */
+  --color-white: #ffffff;
+
+  /* Color de acento (energía, acción) */
+  --color-ember: #ff4b3e;
+  --color-ember-dark: #d93a2e;
+
+  /* Texto */
+  --color-text: #1b1d21;
+  --color-text-light: #6b7280;
+  --color-text-inverse: #f4f3ef;
+
+  /* Tipografía */
+  --font-display: "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Espaciado (escala consistente, evita valores sueltos) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Otros */
+  --radius: 10px;
+  --shadow-soft: 0 10px 30px rgba(20, 22, 26, 0.08);
+  --transition: 0.25s ease;
+  --max-width: 1160px;
+}
+
+
+/* ============================================================
+   2. RESET BÁSICO
+   Quitamos los márgenes/paddings por defecto del navegador
+   para partir de una base predecible.
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* scroll suave al hacer clic en los enlaces del menú */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bone);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+}
+
+/* Accesibilidad: se ve claramente qué elemento tiene el foco al navegar con teclado */
+:focus-visible {
+  outline: 3px solid var(--color-ember);
+  outline-offset: 3px;
+}
+
+/* Respeta a las personas que prefieren menos movimiento en pantalla */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+
+/* ============================================================
+   3. UTILIDADES REUTILIZABLES
+   ============================================================ */
+.section__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.section__container--narrow {
+  max-width: 720px;
+}
+
+.section__eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ember);
+  margin-bottom: var(--space-xs);
+}
+
+.section__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+  max-width: 30ch;
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.btn--primary {
+  background-color: var(--color-ember);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-ember-dark);
+  transform: translateY(-2px);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text-inverse);
+  border-color: rgba(244, 243, 239, 0.4);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-text-inverse);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-ink);
+  width: 100%;
+  text-align: center;
+}
+
+.btn--outline:hover {
+  background-color: var(--color-ink);
+  color: var(--color-text-inverse);
+}
+
+/* --- Tarjeta base (se reutiliza en Servicios) --- */
+.card {
+  background-color: var(--color-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.card__title {
+  font-size: 1.15rem;
+  margin-bottom: var(--space-xs);
+}
+
+.card__text {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   4. NAVBAR
+   ============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-ink);
+  border-bottom: 1px solid rgba(244, 243, 239, 0.08);
+}
+
+.navbar__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-text-inverse);
+}
+
+.navbar__logo span {
+  color: var(--color-ember);
+}
+
+.navbar__list {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.navbar__link {
+  color: var(--color-text-inverse);
+  font-size: 0.92rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Pequeña línea que crece bajo el enlace al pasar el mouse */
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-ember);
+  transition: width var(--transition);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+/* Botón hamburguesa: oculto en escritorio, visible en móvil (ver media queries) */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+
+.navbar__bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-inverse);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Estado "menú abierto": JavaScript añade esta clase al navMenu en móvil */
+.navbar__menu.is-open {
+  display: block;
+}
+
+/* Animación de la hamburguesa hacia una "X" cuando el menú está abierto */
+.navbar__toggle.is-open .navbar__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar__toggle.is-open .navbar__bar:nth-child(2) {
+  opacity: 0;
+}
+.navbar__toggle.is-open .navbar__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero {
+  background-color: var(--color-ink);
+    color: var(--color-text-inverse);
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2xl) var(--space-md) calc(var(--space-2xl) + 3rem);
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+
+/*video de fondo*/
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.hero__container {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__eyebrow {
+  color: var(--color-ember);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  margin-bottom: var(--space-md);
+}
+
+.hero__subtitle {
+  font-size: 1.05rem;
+  color: rgba(244, 243, 239, 0.75);
+  max-width: 55ch;
+  margin: 0 auto var(--space-lg);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   6. SERVICIOS
+   ============================================================ */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.services .card {
+    padding: 0;
+    background-color: var(--color-surface);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.card_image {
+    width: 100%;
+    height: 250px; /* Puedes ajustar este valor si las quieres más altas o más bajas */
+    object-fit: cover; /* Esto hace que la imagen llene el espacio sin aplastarse ni estirarse */
+    display: block; /* Elimina un pequeño espacio en blanco que a veces deja el navegador debajo de las imágenes */
+}
+
+.card_content {
+    padding: 1rem; /* Esto le dará espacio arriba, abajo, izquierda y derecha */
+}
+
+
+/* ============================================================
+   7. PLANES / PRECIOS
+   ============================================================ */
+.pricing {
+  background-color: var(--color-white);
+}
+
+.pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.pricing-card {
+  background-color: var(--color-bone);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.pricing-card__name {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-xs);
+}
+
+.pricing-card__price {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.pricing-card__price span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+.pricing-card__list {
+  margin-bottom: var(--space-lg);
+  text-align: left;
+}
+
+.pricing-card__list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(20, 22, 26, 0.08);
+  font-size: 0.92rem;
+  color: var(--color-text-light);
+}
+
+/* Plan destacado: sombra "sello" en vez de sombra difusa, para que resalte con carácter */
+.pricing-card--featured {
+  background-color: var(--color-white);
+  border-color: var(--color-ink);
+  box-shadow: 8px 8px 0 var(--color-ember);
+  transform: translateY(-8px);
+  position: relative;
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-ember);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================================
+   8. CALCULADORA IMC
+   ============================================================ */
+.bmi__intro {
+  color: var(--color-text-light);
+  max-width: 55ch;
+  margin-top: -1.2rem;
+  margin-bottom: var(--space-lg);
+}
+
+.bmi__box {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-lg);
+  max-width: 620px;
+}
+
+.bmi__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-sm);
+  align-items: end;
+}
+
+.bmi__btn {
+  height: fit-content;
+}
+
+/* Caja de resultado: oculta hasta que JavaScript la rellena */
+.bmi__result {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  background-color: var(--color-bone);
+  display: none; /* JS cambia esto a "block" cuando hay un resultado */
+}
+
+.bmi__result.is-visible {
+  display: block;
+}
+
+.bmi__result-value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.bmi__result-category {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.bmi__result-message {
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+}
+
+/* Colores de categoría, asignados por JavaScript según el resultado */
+.bmi__result-category--bajo   { color: #2563eb; }
+.bmi__result-category--normal { color: #16a34a; }
+.bmi__result-category--sobrepeso { color: #d97706; }
+.bmi__result-category--obesidad  { color: var(--color-ember-dark); }
+
+
+/* ============================================================
+   9. TESTIMONIOS
+   ============================================================ */
+.testimonials {
+  background-color: var(--color-white);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.testimonial-card {
+  background-color: var(--color-bone);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-ember);
+}
+
+.testimonial-card__text {
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.testimonial-card__author {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+
+/* ============================================================
+   10. FAQ (ACORDEÓN)
+   ============================================================ */
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.faq-item {
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  color: var(--color-text);
+}
+
+.faq-item__icon {
+  font-size: 1.3rem;
+  color: var(--color-ember);
+  transition: transform var(--transition);
+}
+
+/* Cuando el acordeón está abierto, JS añade "is-open" y giramos el símbolo "+" a "x" */
+.faq-item.is-open .faq-item__icon {
+  transform: rotate(45deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition);
+  padding: 0 var(--space-md);
+}
+
+.faq-item.is-open .faq-item__answer {
+  max-height: 200px; /* suficiente para el texto de la respuesta */
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.faq-item__answer p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   11. CONTACTO
+   ============================================================ */
+.contact__form {
+  background-color: var(--color-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid rgba(20, 22, 26, 0.15);
+  border-radius: var(--radius);
+  background-color: var(--color-bone);
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-ember);
+  outline: none;
+  background-color: var(--color-white);
+}
+
+/* Estado de error: JS añade la clase "input-error" al campo inválido */
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: var(--color-ember-dark);
+  background-color: #fff0ee;
+}
+
+.form-error {
+  color: var(--color-ember-dark);
+  font-size: 0.82rem;
+  min-height: 1.1em; /* evita que el formulario "salte" cuando aparece el error */
+}
+
+.contact__success {
+  display: none;
+  background-color: #ecfdf3;
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: var(--space-sm);
+  border-radius: var(--radius);
+}
+
+.contact__success.is-visible {
+  display: block;
+}
+
+
+/* ============================================================
+   12. FOOTER
+   ============================================================ */
+.footer {
+  background-color: var(--color-ink);
+  color: var(--color-text-inverse);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.footer__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer__brand span {
+  color: var(--color-ember);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer__social a {
+  color: rgba(244, 243, 239, 0.75);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.footer__social a:hover {
+  color: var(--color-ember);
+}
+
+.footer__copy {
+  font-size: 0.82rem;
+  color: rgba(244, 243, 239, 0.5);
+}
+
+
+/* ============================================================
+   13. RESPONSIVE — TABLET (hasta 992px)
+   ============================================================ */
+@media (max-width: 992px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing__grid,
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-card--featured {
+    grid-column: span 2;
+    transform: none;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MÓVIL (hasta 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Mostramos la hamburguesa y ocultamos el menú horizontal */
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__menu {
+    display: none; /* JS lo muestra con la clase "is-open" */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-ink);
+    border-top: 1px solid rgba(244, 243, 239, 0.08);
+  }
+
+  .navbar__list {
+    flex-direction: column;
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing__grid,
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card--featured {
+    grid-column: span 1;
+  }
+
+  .bmi__form {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — MÓVIL PEQUEÑO (hasta 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .section__container {
+    padding: var(--space-xl) var(--space-sm);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

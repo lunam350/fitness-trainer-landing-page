@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitCore Studio | Entrenamiento personalizado y transformación real</title>
+  <meta name="description" content="FitCore Studio: entrenamiento personalizado, planes nutricionales y seguimiento semanal para transformar tu físico.">
+
+  <!-- Google Fonts: una tipografía para títulos (Sora) y otra para texto (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container">
+      <a href="#inicio" class="navbar__logo">Fit<span>Core</span> Studio</a>
+
+      <!-- Botón hamburguesa (solo visible en móvil vía CSS) -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <span class="navbar__bar"></span>
+        <span class="navbar__bar"></span>
+        <span class="navbar__bar"></span>
+      </button>
+
+      <nav class="navbar__menu" id="navMenu">
+        <ul class="navbar__list">
+          <li><a href="#inicio" class="navbar__link">Inicio</a></li>
+          <li><a href="#servicios" class="navbar__link">Servicios</a></li>
+          <li><a href="#planes" class="navbar__link">Planes</a></li>
+          <li><a href="#calculadora" class="navbar__link">Calculadora IMC</a></li>
+          <li><a href="#testimonios" class="navbar__link">Testimonios</a></li>
+          <li><a href="#faq" class="navbar__link">FAQ</a></li>
+          <li><a href="#contacto" class="navbar__link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="./Images/gym-poster.jpg">
+    <source src="./Videos/gym-video-compressed.mp4" type="video/mp4">
+    </video>
+      <video width="100" class="hero-video" autoplay muted loop playsinline><source src="./Videos/4754030-uhd_4096_2160_25fps.mp4" type="video/mp4"> </video>
+      <div class="hero__container">
+        <p class="hero__eyebrow">Entrenamiento real. Resultados realas.</p>
+        <h1 class="hero__title">Transforma tu cuerpo, <br> reconstruye tu disciplina.</h1>
+        <p class="hero__subtitle">
+          En FitCore Studio combinamos entrenamiento personalizado, nutrición
+          y seguimiento semanal para que tu progreso sea constante, no cuestión de suerte.
+        </p>
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn--primary">Empieza hoy</a>
+          <a href="#planes" class="btn btn--secondary">Ver planes</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="services" id="servicios">
+      <div class="section__container">
+        <p class="section__eyebrow">Lo que ofrecemos</p>
+        <h2 class="section__title">Servicios pensados para tu progreso</h2>
+
+        <div class="services__grid">
+          <article class="card">
+            <img 
+              class="card_image" 
+              src="./Imagenes/Trainer gym.jpeg" 
+              alt="persona entrenando">
+            <div class="card_content"><h3 class="card__title">Entrenamiento personalizado</h3>
+            <p class="card__text">
+              Rutinas diseñadas según tu nivel, objetivos y disponibilidad de tiempo.
+            </p></div>
+          </article>
+
+          <article class="card">
+            <img class="card_image" src="./Imagenes/comida.jpg" alt="ensaladas">
+            <div class="card_content"><h3 class="card__title">Plan nutricional</h3>
+            <p class="card__text">
+              Guías de alimentación simples y sostenibles, adaptadas a tu rutina diaria.
+            </p></div>
+          </article>
+
+          <article class="card">
+            <img class="card_image" src="./Imagenes/exercice.jpeg" alt="ejercicio">
+            <div class="card_content"><h3 class="card__title">Rutinas en casa</h3>
+            <p class="card__text">
+              Entrena sin equipo ni gimnasio, con ejercicios efectivos para cualquier espacio.
+            </p></div>
+          </article>
+
+          <article class="card">
+            <img class="card_image" src="./Imagenes/plan.webp" alt="libreta">
+            <div class="card_content"><h3 class="card__title">Seguimiento semanal</h3>
+            <p class="card__text">
+              Revisamos tu progreso cada semana y ajustamos el plan para que sigas avanzando.
+            </p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLANES / PRECIOS ============ -->
+    <section class="pricing" id="planes">
+      <div class="section__container">
+        <p class="section__eyebrow">Planes</p>
+        <h2 class="section__title">Elige el plan que se ajuste a ti</h2>
+
+        <div class="pricing__grid">
+
+          <article class="pricing-card">
+            <h3 class="pricing-card__name">Básico</h3>
+            <p class="pricing-card__price">$299<span>/mes</span></p>
+            <ul class="pricing-card__list">
+              <li>2 rutinas por semana</li>
+              <li>Plan de entrenamiento general</li>
+              <li>Soporte por chat</li>
+            </ul>
+            <a href="#contacto" class="btn btn--outline">Elegir plan</a>
+          </article>
+
+          <article class="pricing-card pricing-card--featured">
+            <p class="pricing-card__badge">Más elegido</p>
+            <h3 class="pricing-card__name">Pro</h3>
+            <p class="pricing-card__price">$599<span>/mes</span></p>
+            <ul class="pricing-card__list">
+              <li>4 rutinas por semana</li>
+              <li>Plan nutricional incluido</li>
+              <li>Seguimiento semanal</li>
+              <li>Soporte prioritario</li>
+            </ul>
+            <a href="#contacto" class="btn btn--primary">Elegir plan</a>
+          </article>
+
+          <article class="pricing-card">
+            <h3 class="pricing-card__name">Premium</h3>
+            <p class="pricing-card__price">$899<span>/mes</span></p>
+            <ul class="pricing-card__list">
+              <li>Entrenamiento 100% personalizado</li>
+              <li>Plan nutricional a medida</li>
+              <li>Seguimiento semanal 1 a 1</li>
+              <li>Acceso directo al coach</li>
+            </ul>
+            <a href="#contacto" class="btn btn--outline">Elegir plan</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALCULADORA IMC ============ -->
+    <section class="bmi" id="calculadora">
+      <div class="section__container">
+        <p class="section__eyebrow">Herramienta gratuita</p>
+        <h2 class="section__title">Calcula tu Índice de Masa Corporal</h2>
+        <p class="bmi__intro">
+          Ingresa tu peso y estatura para conocer tu IMC actual y en qué categoría te encuentras.
+        </p>
+
+        <div class="bmi__box">
+          <form class="bmi__form" id="bmiForm">
+            <div class="form-group">
+              <label for="peso">Peso (kg)</label>
+              <input type="number" id="peso" name="peso" placeholder="Ej. 70" min="1" step="0.1">
+            </div>
+
+            <div class="form-group">
+              <label for="estatura">Estatura (cm)</label>
+              <input type="number" id="estatura" name="estatura" placeholder="Ej. 170" min="1" step="0.1">
+            </div>
+
+            <button type="submit" class="btn btn--primary bmi__btn">Calcular IMC</button>
+          </form>
+
+          <!-- Aquí JavaScript inyectará el resultado -->
+          <div class="bmi__result" id="bmiResult" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section class="testimonials" id="testimonios">
+      <div class="section__container">
+        <p class="section__eyebrow">Historias reales</p>
+        <h2 class="section__title">Lo que dicen nuestros alumnos</h2>
+
+        <div class="testimonials__grid">
+          <article class="testimonial-card">
+            <p class="testimonial-card__text">
+              "En 4 meses logré lo que no había conseguido en años entrenando solo. El seguimiento semanal marcó la diferencia."
+            </p>
+            <p class="testimonial-card__author">— Daniela R.</p>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-card__text">
+              "El plan nutricional fue lo más fácil de seguir que he probado. Nada de dietas imposibles."
+            </p>
+            <p class="testimonial-card__author">— Jorge M.</p>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-card__text">
+              "Entreno en casa con las rutinas de FitCore y he visto resultados reales en poco tiempo."
+            </p>
+            <p class="testimonial-card__author">— Carla V.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq">
+      <div class="section__container section__container--narrow">
+        <p class="section__eyebrow">Dudas frecuentes</p>
+        <h2 class="section__title">Preguntas frecuentes</h2>
+
+        <div class="faq__list" id="faqList">
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              ¿Necesito experiencia previa para empezar?
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>No. Los planes se adaptan a tu nivel actual, desde principiante hasta avanzado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              ¿Puedo entrenar en casa sin equipo?
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>Sí, contamos con rutinas diseñadas específicamente para entrenar sin necesidad de equipo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              ¿Cómo funciona el seguimiento semanal?
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>Cada semana revisamos tu progreso y ajustamos tu plan de entrenamiento y nutrición.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              ¿Puedo cambiar de plan más adelante?
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>Claro, puedes cambiar de plan en cualquier momento según tus necesidades.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact" id="contacto">
+      <div class="section__container section__container--narrow">
+        <p class="section__eyebrow">Hablemos</p>
+        <h2 class="section__title">Empieza tu transformación hoy</h2>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo">
+            <span class="form-error" id="errorNombre"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com">
+            <span class="form-error" id="errorEmail"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos tu objetivo"></textarea>
+            <span class="form-error" id="errorMensaje"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Enviar mensaje</button>
+
+          <!-- Aquí JavaScript mostrará el mensaje de éxito -->
+          <p class="contact__success" id="contactSuccess" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__brand">Fit<span>Core</span> Studio</p>
+
+      <ul class="footer__social">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+
+      <p class="footer__copy">Proyecto desarrollado por Abel Manuel Luna Meza</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

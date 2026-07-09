@@ -1,12 +1,12 @@
-# 🏋️ FitCore Studio - Fitness Trainer Landing Page
+# FitCore Studio - Fitness Trainer Landing Page
 
 A modern, responsive landing page for a personal fitness trainer built with **HTML, CSS, and JavaScript**. The project focuses on creating an attractive user interface, responsive design, and an engaging user experience.
 
-## 📖 Overview
+## Overview
 
 FitCore Studio is a fictional fitness website designed to promote personal training services. It includes a full-screen hero section with a background video, service cards, and a modern layout that adapts to different screen sizes.
 
-## ✨ Features
+## Features
 
 - Responsive design for desktop and mobile devices
 - Hero section with background video
@@ -21,7 +21,7 @@ FitCore Studio is a fictional fitness website designed to promote personal train
 - CSS3
 - JavaScript (Vanilla)
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 fitness-trainer-landing-page/
@@ -34,7 +34,7 @@ fitness-trainer-landing-page/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repository.
 
@@ -52,7 +52,7 @@ No additional dependencies or installation are required.
 
 > Screenshots of the project will be added here.
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - Contact form with validation
 - Smooth scrolling animations
@@ -61,7 +61,7 @@ No additional dependencies or installation are required.
 - Pricing plans
 - Backend integration for contact requests
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 This project was created to strengthen my knowledge of:
 
@@ -72,12 +72,12 @@ This project was created to strengthen my knowledge of:
 - Project organization
 - Git & GitHub workflow
 
-## 👨‍💻 Author
+## Author
 
 **Abel Manuel Luna Meza**
 
 - GitHub: https://github.com/lunam350
-
+Portafolio:
+https://lunam350.github.io/fitness-trainer-landing-page/
 ---
-
-⭐ Feel free to explore the project and share your feedback.
+ Feel free to explore the project and share your feedback.
